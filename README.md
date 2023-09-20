@@ -12,3 +12,6 @@ We all love games, especially ones that make us think. The iconic wordle game al
 ![Screenshot 2023-09-20 145948](https://github.com/tombe17/startup/assets/131499102/e2fac456-c0e3-46d2-b17c-8333b8dfc4c8)
 
 **Features**
+
+
+**Technology**
