@@ -15,3 +15,7 @@ To ssh: ssh -i [keyfile] ubuntu@54.174.116.248
 
 ## HTTPS
 To make it secure go through the caddy file and update it. This allows you to access your website securely!
+
+## Deployment to Server
+Go to the file in terminal and then use this comand to deploy the files onto the server.
+./deployFiles.sh -k <yourpemkey> -h <yourdomain> -s simon
