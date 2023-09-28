@@ -18,4 +18,4 @@ To make it secure go through the caddy file and update it. This allows you to ac
 
 ## Deployment to Server
 Go to the file in terminal and then use this comand to deploy the files onto the server.
-./deployFiles.sh -k <yourpemkey> -h wirdle.click -s simon
+./deployFiles.sh -k (yourpemkey) -h wirdle.click -s simon
