@@ -29,7 +29,7 @@ There will also be a link there for an info page.
 
 I am going to use the required technologies in the following ways.
 
-- HTML - Uses correct HTML structure for application. Three HTML pages. One for login, one for the game, and one for info. Hyperlinks to different pages.
+- HTML - Uses correct HTML structure for application. Four HTML pages. One for login, one for the game, one for scores, and one for info. Hyperlinks to different pages.
 - CSS - Application styling that looks good on different screen sizes, uses good whitespace, color choice and contrast.
 - JavaScript - Provides login, word display, guessing for the words, and backend endpoint calls.
 - Service - Backend service with endpoints for:
@@ -41,3 +41,14 @@ retrieving letter status
 - Login - Register and login users. Credentials securely stored in database. Can't play unless authenticated.
 - WebSocket - As each user guesses words, their score is broadcast to all other users.
 - React - Application ported to use the React web framework.
+
+## HTML Deliverable
+For this deliverable I built out the structure of my application using HTML.
+
+HTML pages - Four HTML page that represent the ability to login, play, see scores, and see info about the game.
+Links - Each page has links to the other pages, and by logging in you are sent to play.
+Text - Each word will be represented by text.
+Images - Images will show combos of words on the about page.
+Login - Input box and submit button for login.
+Database - The words to guess represent data pulled from the database.
+WebSocket - The function of assessing if letters are correct represetns realtime assessment of letters.
