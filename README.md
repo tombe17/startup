@@ -45,10 +45,9 @@ retrieving letter status
 ## HTML Deliverable
 For this deliverable I built out the structure of my application using HTML.
 
-HTML pages - Four HTML page that represent the ability to login, play, see scores, and see info about the game.
-Links - Each page has links to the other pages, and by logging in you are sent to play.
-Text - Each word will be represented by text.
-Images - Images will show combos of words on the about page.
-Login - Input box and submit button for login.
-Database - The words to guess represent data pulled from the database.
+HTML pages - Four HTML page that represent the ability to login, play, see scores, and see info about the game.  Links - Each page has links to the other pages, and by logging in you are sent to play.  
+Text - Each word will be represented by text.  
+Images - Images will show combos of words on the about page.  
+Login - Input box and submit button for login.  
+Database - The words to guess represent data pulled from the database.  
 WebSocket - The function of assessing if letters are correct represetns realtime assessment of letters.
