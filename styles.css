@@ -1,4 +1,115 @@
-h1 {
-    font-family: cursive;
+* {
+    font-family: sans-serif;
+    background-color: darkslategray;
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header {
+    color: whitesmoke;
+    background-color: darkslategray;
+    flex: 0 80px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: baseline;
+}
+
+nav h1 {
+    font-size: 48px;
+    padding: 0 2em;
+}
+
+menu {
+    display: flex;
+    flex-direction: row;
+    padding: 0 0.5em;
+}
+
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    color: whitesmoke;
+    padding: 0 0.5em;
+}
+
+a {
+    color: whitesmoke;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightgray;
+}
+
+main {
+    flex: 1;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+
+p {
+    background-color: whitesmoke;
+    color: darkslategray;
+}
+
+form {
+    background-color: whitesmoke;
+    color: darkslategray;
+}
+
+label {
+    background-color: whitesmoke;
+    font-size: 0.75em;
+    color: darkslategray;
+}
+
+input {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border-color: gray;
+    color: darkslategray;
+}
+
+button {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    font-variant: small-caps;
+    color: darkslategray;
+}
+
+button:hover {
+    background-color: lightgray;
+    
+}
+
+footer {
+    flex: 0 10px;
+    background: darkslategray;
+    color: whitesmoke;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer div {
+    padding: 1em;
+  }
