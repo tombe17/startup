@@ -6,210 +6,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wirdle</title>
     <link rel="icon" href="favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <!-- Use header, main, and footer elements to give semantic structure -->
     <header>
-      <h1>WIRDLE</h1>
-
-      <!-- Navigation elements -->
       <nav>
-        <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
-        <menu>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="play.html">Play</a></li>
-          <li><a href="scores.html">Scores</a></li>
-          <li><a href="about.html">About</a></li>
-        </menu>
+        <div class="container-fluid">
+          <a id="navHead" href="#">Wirdle</a>
+          <div class="container-fluid">
+            <ul>
+              <li><a class="navbar" href="index.html">Home</a></li>
+              <li><a id="currPage" class="navbar" href="play.html">Play</a></li>
+              <li><a class="navbar" href="scores.html">Scores</a></li>
+              <li><a class="navbar" href="about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
       </nav>
 
-      <!-- Since we don't have the ability to style we use old style HTML to give some visual formatting -->
-      <hr />
     </header>
 
     <main>
-      <div class="players">
-        Player:
-        <span class="player-name">Mystery player</span>
+      
+      <div>
+        <ol class="notification">
+          <li class="player-name">Tim started a new game</li>
+          <li class="player-name">Ada started a new game</li>
+          <li class="player-name">Tim scored 337</li>
+        </ol>
       </div>
-      <ul class="notification">
-        <li class="player-name">Tim started a new game</li>
-        <li class="player-name">Ada started a new game</li>
-        <li class="player-name">Tim scored 337</li>
-      </ul>
-
-      <!-- More formatting with old style HTML -->
-      <br />
 
       <div>
         <label for="count">Score</label>
         <input type="text" id="count" value="--" readonly />
       </div>
 
-      <br />
-
       <div>
         <button>Reset</button>
       </div>
-
-      <br />
-
+      
+      <!--The game grid-->
       <div>
         <table>
           <tr>
-            <td>
-              <button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <!-- SVG
-                    M move <to x,y>
-                    Q quadratic curve <control point x,y> <to x,y>
-                -->
-                  <!-- What they used to draw the simon shape
-                    <path d="M 95,5 95,95 5,95 Q 5,5 95,5" fill="green" />
-                  -->
-                </svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
           </tr>
+          <tr>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+          </tr>
+          <tr>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+          </tr>
+          <tr>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+          </tr>
+          <tr>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+          </tr>
+          <tr>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+            <td><div class="square"></div></td>
+          </tr>
+        </table>
+      </div>
 
+      <!--The letters for the words-->
+      <div>
+        <table>
           <tr>
-            <td>
-              <button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
+            <td><button type="button" class="btn btn-secondary">Q</button></td>
+            <td><button type="button" class="btn btn-secondary">W</button></td>
+            <td><button type="button" class="btn btn-secondary">E</button></td>
+            <td><button type="button" class="btn btn-secondary">R</button></td>
+            <td><button type="button" class="btn btn-secondary">T</button></td>
+            <td><button type="button" class="btn btn-secondary">Y</button></td>
+            <td><button type="button" class="btn btn-secondary">U</button></td>
+            <td><button type="button" class="btn btn-secondary">I</button></td>
+            <td><button type="button" class="btn btn-secondary">O</button></td>
+            <td><button type="button" class="btn btn-secondary">P</button></td>
           </tr>
           <tr>
-            <td>
-              <button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
+            <td><button type="button" class="btn btn-secondary">A</button></td>
+            <td><button type="button" class="btn btn-secondary">S</button></td>
+            <td><button type="button" class="btn btn-secondary">D</button></td>
+            <td><button type="button" class="btn btn-secondary">F</button></td>
+            <td><button type="button" class="btn btn-secondary">G</button></td>
+            <td><button type="button" class="btn btn-secondary">H</button></td>
+            <td><button type="button" class="btn btn-secondary">J</button></td>
+            <td><button type="button" class="btn btn-secondary">K</button></td>
+            <td><button type="button" class="btn btn-secondary">L</button></td>
           </tr>
           <tr>
-            <td>
-              <button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg viewBox="0 0 100 100" height="100" width="100"></svg>
-              </button>
-            </td>
+            <td><button type="button" class="btn btn-secondary">ENTER</button></td>
+            <td><button type="button" class="btn btn-secondary">Z</button></td>
+            <td><button type="button" class="btn btn-secondary">X</button></td>
+            <td><button type="button" class="btn btn-secondary">C</button></td>
+            <td><button type="button" class="btn btn-secondary">V</button></td>
+            <td><button type="button" class="btn btn-secondary">B</button></td>
+            <td><button type="button" class="btn btn-secondary">N</button></td>
+            <td><button type="button" class="btn btn-secondary">M</button></td>
+            <td><button type="button" class="btn btn-secondary">DEL</button></td>
           </tr>
         </table>
       </div>
     </main>
 
     <footer>
-      <hr />
-      <span class="text-reset">Thomas Bellows</span>
-      <br />
+      <div class="text-reset">Thomas Bellows</div>
       <a href="https://github.com/tombe17/startup">GitHub</a>
     </footer>
   </body>

@@ -1,6 +1,6 @@
 * {
     font-family: sans-serif;
-    background-color: darkslategray;
+
 }
 
 html {
@@ -14,10 +14,17 @@ body {
     height: 100%;
 }
 
+#currPage {
+    font-weight: bold;
+}
+#currPage:hover {
+    color: #F5FFFD;
+}
+
 header {
-    color: whitesmoke;
-    background-color: darkslategray;
-    flex: 0 80px;
+    color: #F5FFFD;
+    background-color: #1A94FF;
+    flex: 0 60px;
 
     display: flex;
     flex-direction: row;
@@ -25,27 +32,39 @@ header {
     align-items: baseline;
 }
 
-nav h1 {
-    font-size: 48px;
-    padding: 0 2em;
+header div {
+    display: flex;
+    flex-direction: row;
+    padding: 0 1em;
+    align-items: baseline;
+
 }
 
-menu {
+ul {
+    list-style-type: none;
     display: flex;
     flex-direction: row;
     padding: 0 0.5em;
 }
 
+#navHead {
+    font-size: 36px;
+    padding-left: .25em;
+}
+
+#navHead:hover {
+    color:#F5FFFD
+}
 
 .navbar {
     display: flex;
     flex-direction: row;
-    color: whitesmoke;
+    color: #F5FFFD;
     padding: 0 0.5em;
 }
 
 a {
-    color: whitesmoke;
+    color: #F5FFFD;
     font-size: 1em;
     text-decoration: none;
 }
@@ -61,55 +80,87 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: whitesmoke;
+    background-color: #F5FFFD;
 }
 
 p {
-    background-color: whitesmoke;
+    background-color: #F5FFFD;
     color: darkslategray;
+    font-size: .75em;
 }
 
 form {
-    background-color: whitesmoke;
+    background-color: #F5FFFD;
     color: darkslategray;
 }
 
 label {
-    background-color: whitesmoke;
+    background-color: #F5FFFD;
     font-size: 0.75em;
     color: darkslategray;
 }
 
 input {
-    background-color: whitesmoke;
+    background-color: #F5FFFD;
     border-radius: 5px;
-    border-color: gray;
+    border-color: darkslategray;
     color: darkslategray;
 }
 
-button {
-    background-color: whitesmoke;
-    border-radius: 5px;
-    font-variant: small-caps;
+h2 {
+    background-color: #F5FFFD;
+    color: #FDAFC0;
+    font-size: 2em;
+    margin: 0 0em;
+}
+
+#log-btn {
+    background-color: #FDAFC0;
+    border-color: #FDAFC0;
     color: darkslategray;
+    cursor: pointer;
 }
 
 button:hover {
-    background-color: lightgray;
-    
+    background-color: #DC4204;
 }
 
 footer {
     flex: 0 10px;
-    background: darkslategray;
-    color: whitesmoke;
+    background: #1A94FF;
+    color: #F5FFFD;
     
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  footer div {
+footer div {
     padding: 1em;
-  }
+}
+
+table {
+    background-color: #F5FFFD;
+    padding: 2em;
+    margin: .75em;
+}
+
+tr {
+    background-color: #F5FFFD;
+    display: flex;
+    flex-direction: row;
+}
+
+td {
+    background-color: #F5FFFD;
+}
+
+.square {
+    height: 40px;
+    width: 40px;
+    border: 2px solid #1A94FF;
+    border-radius: 5px;
+    margin: .10em;
+}
+
