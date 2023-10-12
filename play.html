@@ -28,27 +28,25 @@
 
     </header>
 
+
+
     <main>
-      
-      <div>
+      <span class="notifications">
         <ol class="notification">
           <li class="player-name">Tim started a new game</li>
           <li class="player-name">Ada started a new game</li>
           <li class="player-name">Tim scored 337</li>
         </ol>
-      </div>
 
-      <div>
         <label for="count">Score</label>
         <input type="text" id="count" value="--" readonly />
-      </div>
+      </span>
 
-      <div>
-        <button>Reset</button>
+      <div class="ctr-item">
+        <button type="button" class="btn btn-primary" id="log-btn">Reset</button>
       </div>
-      
       <!--The game grid-->
-      <div>
+      <div class="ctr-item">
         <table>
           <tr>
             <td><div class="square"></div></td>
@@ -96,7 +94,7 @@
       </div>
 
       <!--The letters for the words-->
-      <div>
+      <div class="ctr-item">
         <table>
           <tr>
             <td><button type="button" class="btn btn-secondary">Q</button></td>
