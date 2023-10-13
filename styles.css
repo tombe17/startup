@@ -145,8 +145,23 @@ table {
     margin: .75em;
 }
 
+.score-tr {
+    display: grid;
+    grid-template-columns: 33% 34% 33%; 
+}
+
+tr:hover {
+    font-weight: bold;
+}
+
+.score-hd {
+    font-weight: bold;
+    background-color: #1A94FF;
+    color: #F5FFFD;
+    padding-left: .5em;
+}
+
 tr {
-    background-color: #F5FFFD;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -182,4 +197,26 @@ td {
     .notifications {
         visibility: hidden;
     }
+}
+
+.info {
+    text-align: center;
+    padding-top: 1em;
+}
+
+#word {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#word div {
+    padding-left: .15em;
+    padding-right: .15em;
+    border-bottom: 2px solid #1A94FF;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
