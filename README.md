@@ -51,3 +51,13 @@ Images - Images will show combos of words on the about page.
 Login - Input box and submit button for login.  
 Database - The words to guess represent data pulled from the database.  
 WebSocket - The function of assessing if letters are correct represetns realtime assessment of letters.
+
+## CSS Deliverable
+For this deliverable I properly styled the application into its final appearance.
+
+Used header, footer, and main content body
+Navigation elements - I redesigned the links to look more simple and without any bullet points or underlines. They also change color when hovering over them.
+Responsive to window resizing - My app looks great on all window sizes and devices, on the play screen it will hide the live feed when your screen is smaller.
+Application elements - Used good contrast and whitespace, made a theme with a nice vibrant blue and a light pink.
+Application text content - Consistent fonts across the whole site.
+Application images - fit a small image on the about page.
