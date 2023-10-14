@@ -95,7 +95,7 @@ form {
 
 label {
     background-color: #F5FFFD;
-    font-size: 0.75em;
+    font-size: 0.6em;
     color: darkslategray;
 }
 
@@ -118,6 +118,8 @@ h2 {
     border-color: #FDAFC0;
     color: darkslategray;
     cursor: pointer;
+    margin: .5em;
+    width: 100%;
 }
 
 button:hover {
@@ -148,6 +150,18 @@ table {
 .score-tr {
     display: grid;
     grid-template-columns: 33% 34% 33%; 
+    align-items: baseline;
+
+}
+
+.score-tbl {
+    font-size: 3.25vw;
+}
+
+@media (min-width: 43em) {
+    .score-tbl {
+        font-size: 1em;
+    }
 }
 
 tr:hover {
@@ -156,8 +170,7 @@ tr:hover {
 
 .score-hd {
     font-weight: bold;
-    background-color: #1A94FF;
-    color: #F5FFFD;
+    border-bottom: 2px solid #FDAFC0;
     padding-left: .5em;
 }
 
@@ -212,7 +225,7 @@ td {
 #word div {
     padding-left: .15em;
     padding-right: .15em;
-    border-bottom: 2px solid #1A94FF;
+    border-bottom: 2px solid #FDAFC0;
 }
 
 .center {
