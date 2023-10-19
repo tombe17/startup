@@ -154,6 +154,11 @@ table {
 
 }
 
+/*fix this!!*/
+#score-tr tr:hover {
+    font-weight: bold;
+}
+
 .score-tbl {
     font-size: 3.25vw;
 }
@@ -162,10 +167,6 @@ table {
     .score-tbl {
         font-size: 1em;
     }
-}
-
-tr:hover {
-    font-weight: bold;
 }
 
 .score-hd {
@@ -185,17 +186,35 @@ td {
 }
 
 .square {
-    height: 40px;
-    width: 40px;
+    height: 1.7em;
+    width: 1.7em;
     border: 2px solid #1A94FF;
     border-radius: 5px;
     margin: .10em;
+
 }
 
 .ctr-item {
     justify-content: center; /*horizontal*/
     align-items: center;    /*vertical*/
     align-self: center;
+}
+
+.keyboard-btn {
+    background-color: rgb(113, 120, 127);
+    border: 0px;
+    border-radius: 5px;
+    padding-left: .6em;
+    padding-right: .6em;
+    padding-top: .25em;
+    padding-bottom: .25em;
+    font-size: .78em;
+    color: #F5FFFD;
+    cursor: pointer;
+}
+
+.keyboard-btn:hover {
+    background-color: rgb(98, 102, 106);
 }
 
 .notifications {
