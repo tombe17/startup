@@ -7,6 +7,28 @@ let nextLetter = 0;
 let rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)]
 console.log(rightGuessString)
 
+makeBoard()
+
+function makeBoard() {
+    let board = document.getElementById("game-board")
+
+    // if (board.hasChildNodes) {
+    //     removeAllChildNodes(board)
+    // }
+
+    for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
+        let row = document.createElement("div")
+        row.className = "letter-row"
+
+        for (let j = 0; j < 5; j++) {
+            let square = document.createElement("div")
+            square.className = "square"
+            row.appendChild(square)
+        }
+        board.appendChild(row)
+    }
+}
+
 document.getElementById("keyboard").addEventListener("click", (e) => {
     const target = e.target
 
@@ -86,15 +108,15 @@ function checkGuess() {
         let letterPosition = rightGuess.indexOf(currentGuess[i])
         //is letter in the correct guess
         if (letterPosition === -1) {
-            letterColor = 'grey'
+            letterColor = 'rgb(113, 120, 127)'  //gray
 
         } else {
             //we know it is in the word
             //if letter index = right guess index then in position
             if(currentGuess[i] === rightGuess[i]) {
-                letterColor = 'green'
+                letterColor = 'rgb(165, 237, 165)'  //green
             } else {
-                letterColor = 'yellow'
+                letterColor = 'rgb(241, 241, 139)'  //yellow
             }
 
             rightGuess[letterPosition] = "#"
@@ -144,11 +166,11 @@ function shadeKeyBoard(letter, color) {
     for (const elem of document.getElementsByClassName("btn btn-secondary")) {
         if (elem.textContent === letter) {
             let oldColor = elem.style.backgroundColor
-            if (oldColor === 'green') {
+            if (oldColor === 'rgb(165, 237, 165)') {    //gray
                 return
             }
 
-            if (oldColor === 'yellow' && color !== 'green') {
+            if (oldColor === 'rgb(241, 241, 139)' && color !== 'rgb(165, 237, 165)') {  //yellow then green
                 return
             }
 

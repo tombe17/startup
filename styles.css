@@ -155,7 +155,7 @@ table {
 }
 
 /*fix this!!*/
-#score-tr tr:hover {
+tr:hover {
     font-weight: bold;
 }
 
@@ -188,9 +188,12 @@ td {
 .square {
     height: 1.7em;
     width: 1.7em;
-    border: 2px solid #1A94FF;
+    border: 2px solid rgb(113, 120, 127);
     border-radius: 5px;
     margin: .10em;
+    font-weight: bold;
+    color:#FDAFC0;
+    text-align: center;
 
 }
 
@@ -198,6 +201,16 @@ td {
     justify-content: center; /*horizontal*/
     align-items: center;    /*vertical*/
     align-self: center;
+}
+
+#game-board {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.letter-row {
+    display: flex;
 }
 
 .keyboard-btn {

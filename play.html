@@ -43,52 +43,9 @@
       </span>
 
       <!--The game grid-->
-      <div class="ctr-item">
-        <table>
-          <tr class="letter-row">
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-          </tr>
-          <tr class="letter-row">
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-          </tr>
-          <tr class="letter-row">
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-          </tr>
-          <tr class="letter-row">
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-          </tr>
-          <tr class="letter-row">
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-          </tr>
-          <tr class="letter-row">
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-          </tr>
-        </table>
+      <div id="game-board"> 
       </div>
+      
 
       <!--The letters for the words-->
       <div class="ctr-item" id="keyboard">
@@ -130,7 +87,7 @@
         </table>
       </div>
       <div class="ctr-item">
-        <button type="button" class="btn btn-primary" id="log-btn">Reset</button>
+        <button type="button" class="btn btn-primary" id="log-btn" onclick="makeBoard()">Reset</button>
       </div>
     </main>
 
