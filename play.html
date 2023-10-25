@@ -32,14 +32,14 @@
 
     <main>
       <span class="notifications">
+        <label for="count" style="font-size: 1em;">Score</label>
+        <input type="text" id="count" value="--" readonly />
+        
         <ol class="notification">
           <li class="player-name">Tim started a new game</li>
           <li class="player-name">Ada started a new game</li>
           <li class="player-name">Tim scored 337</li>
         </ol>
-
-        <label for="count">Score</label>
-        <input type="text" id="count" value="--" readonly />
       </span>
 
       <!--The game grid-->
@@ -48,46 +48,45 @@
       
 
       <!--The letters for the words-->
-      <div class="ctr-item" id="keyboard">
-        <table>
-          <tr>
-            <td><button class="keyboard-btn">Q</button></td>
-            <td><button class="keyboard-btn">W</button></td>
-            <td><button class="keyboard-btn">E</button></td>
-            <td><button class="keyboard-btn">R</button></td>
-            <td><button class="keyboard-btn">T</button></td>
-            <td><button class="keyboard-btn">Y</button></td>
-            <td><button class="keyboard-btn">U</button></td>
-            <td><button class="keyboard-btn">I</button></td>
-            <td><button class="keyboard-btn">O</button></td>
-            <td><button class="keyboard-btn">P</button></td>
-          </tr>
-          <tr>
-            <td><button class="keyboard-btn">A</button></td>
-            <td><button class="keyboard-btn">S</button></td>
-            <td><button class="keyboard-btn">D</button></td>
-            <td><button class="keyboard-btn">F</button></td>
-            <td><button class="keyboard-btn">G</button></td>
-            <td><button class="keyboard-btn">H</button></td>
-            <td><button class="keyboard-btn">J</button></td>
-            <td><button class="keyboard-btn">K</button></td>
-            <td><button class="keyboard-btn">L</button></td>
-          </tr>
-          <tr>
-            <td><button class="keyboard-btn">ENTER</button></td>
-            <td><button class="keyboard-btn">Z</button></td>
-            <td><button class="keyboard-btn">X</button></td>
-            <td><button class="keyboard-btn">C</button></td>
-            <td><button class="keyboard-btn">V</button></td>
-            <td><button class="keyboard-btn">B</button></td>
-            <td><button class="keyboard-btn">N</button></td>
-            <td><button class="keyboard-btn">M</button></td>
-            <td><button class="keyboard-btn">DEL</button></td>
-          </tr>
-        </table>
+      <div class="ctr-item" id="keyboard" style="margin-top: .5em;">
+        <div>
+          <button class="keyboard-btn">Q</button>
+          <button class="keyboard-btn">W</button>
+          <button class="keyboard-btn">E</button>
+          <button class="keyboard-btn">R</button>
+          <button class="keyboard-btn">T</button>
+          <button class="keyboard-btn">Y</button>
+          <button class="keyboard-btn">U</button>
+          <button class="keyboard-btn">I</button>
+          <button class="keyboard-btn">O</button>
+          <button class="keyboard-btn">P</button>
+        </div>   
+        <div> 
+          <button class="keyboard-btn">A</button>
+          <button class="keyboard-btn">S</button>
+          <button class="keyboard-btn">D</button>
+          <button class="keyboard-btn">F</button>
+          <button class="keyboard-btn">G</button>
+          <button class="keyboard-btn">H</button>
+          <button class="keyboard-btn">J</button>
+          <button class="keyboard-btn">K</button>
+          <button class="keyboard-btn">L</button>
+        </div>   
+        <div>
+          <button class="keyboard-btn">DEL</button>
+          <button class="keyboard-btn">Z</button>
+          <button class="keyboard-btn">X</button>
+          <button class="keyboard-btn">C</button>
+          <button class="keyboard-btn">V</button>
+          <button class="keyboard-btn">B</button>
+          <button class="keyboard-btn">N</button>
+          <button class="keyboard-btn">M</button>
+          <button class="keyboard-btn">ENTER</button>
+        </div> 
       </div>
+      
       <div class="ctr-item">
-        <button type="button" class="btn btn-primary" id="log-btn" onclick="makeBoard()">Reset</button>
+        <button type="button" class="btn btn-primary" id="log-btn">Reset</button>
       </div>
     </main>
 

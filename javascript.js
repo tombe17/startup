@@ -9,12 +9,10 @@ console.log(rightGuessString)
 
 makeBoard()
 
+
+
 function makeBoard() {
     let board = document.getElementById("game-board")
-
-    // if (board.hasChildNodes) {
-    //     removeAllChildNodes(board)
-    // }
 
     for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
         let row = document.createElement("div")
@@ -32,7 +30,7 @@ function makeBoard() {
 document.getElementById("keyboard").addEventListener("click", (e) => {
     const target = e.target
 
-    if (!target.classList.contains("btn btn-secondary")) {
+    if (!target.classList.contains("keyboard-btn")) {
         return
     }
     let key = target.textContent
@@ -40,6 +38,10 @@ document.getElementById("keyboard").addEventListener("click", (e) => {
 
     if (key === "DEL") {
         key = "Backspace"
+    }
+
+    if (key === "ENTER") {
+        key = "Enter"
     }
 
     document.dispatchEvent(new KeyboardEvent("keyup", {'key': key}))
@@ -108,7 +110,7 @@ function checkGuess() {
         let letterPosition = rightGuess.indexOf(currentGuess[i])
         //is letter in the correct guess
         if (letterPosition === -1) {
-            letterColor = 'rgb(113, 120, 127)'  //gray
+            letterColor = 'rgb(83, 87, 91)'  //gray
 
         } else {
             //we know it is in the word
@@ -163,14 +165,15 @@ function insertLetter(pressedKey) {
 }
 
 function shadeKeyBoard(letter, color) {
-    for (const elem of document.getElementsByClassName("btn btn-secondary")) {
-        if (elem.textContent === letter) {
+    let upLetter = letter.toUpperCase()
+    for (const elem of document.getElementsByClassName("keyboard-btn")) {
+        if (elem.textContent === upLetter) {
             let oldColor = elem.style.backgroundColor
-            if (oldColor === 'rgb(165, 237, 165)') {    //gray
+            if (oldColor === 'rgb(165, 237, 165)') {    //if green then don't color
                 return
             }
 
-            if (oldColor === 'rgb(241, 241, 139)' && color !== 'rgb(165, 237, 165)') {  //yellow then green
+            if (oldColor === 'rgb(241, 241, 139)' && color !== 'rgb(165, 237, 165)') {  //if yellow and not green go back, if green it will change to green
                 return
             }
 
@@ -179,3 +182,25 @@ function shadeKeyBoard(letter, color) {
         }
     }
 }
+
+document.getElementById("log-btn").addEventListener("click", (e) => {
+    console.log("Resetting...")
+
+    let board = document.getElementById("game-board")
+    
+    while (board.hasChildNodes()) {
+        board.removeChild(board.lastChild)
+    }
+    //reset the guesses and get a new word
+    guessesLeft = NUMBER_OF_GUESSES;
+    currentGuess = [];
+    nextLetter = 0;
+    rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)]
+    console.log(rightGuessString)
+    let baseColor = 'rgb(113, 120, 127)'
+    //get the keyboard back to normal
+    for (const elem of document.getElementsByClassName("keyboard-btn")) {
+        elem.style.backgroundColor = baseColor
+    }
+    makeBoard()
+})

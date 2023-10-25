@@ -106,6 +106,10 @@ input {
     color: darkslategray;
 }
 
+#count {
+    margin: .5em;
+}
+
 h2 {
     background-color: #F5FFFD;
     color: #FDAFC0;
@@ -116,7 +120,7 @@ h2 {
 #log-btn {
     background-color: #FDAFC0;
     border-color: #FDAFC0;
-    color: darkslategray;
+    color: #F5FFFD;
     cursor: pointer;
     margin: .5em;
     width: 100%;
@@ -188,7 +192,7 @@ td {
 .square {
     height: 1.7em;
     width: 1.7em;
-    border: 2px solid rgb(113, 120, 127);
+    border: 2px solid rgb(83, 87, 91);
     border-radius: 5px;
     margin: .10em;
     font-weight: bold;
@@ -213,6 +217,11 @@ td {
     display: flex;
 }
 
+#keyboard div {
+    display: flex;
+    justify-content: center;
+}
+
 .keyboard-btn {
     background-color: rgb(113, 120, 127);
     border: 0px;
@@ -221,13 +230,14 @@ td {
     padding-right: .6em;
     padding-top: .25em;
     padding-bottom: .25em;
+    margin: .15em;
     font-size: .78em;
-    color: #F5FFFD;
+    color: #FDAFC0;
     cursor: pointer;
 }
 
 .keyboard-btn:hover {
-    background-color: rgb(98, 102, 106);
+    background-color: rgb(83, 87, 91);
 }
 
 .notifications {
