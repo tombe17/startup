@@ -223,6 +223,7 @@ td {
 }
 
 .keyboard-btn {
+    display: flex;
     background-color: rgb(113, 120, 127);
     border: 0px;
     border-radius: 5px;

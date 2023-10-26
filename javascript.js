@@ -9,8 +9,6 @@ console.log(rightGuessString)
 
 makeBoard()
 
-
-
 function makeBoard() {
     let board = document.getElementById("game-board")
 
@@ -59,8 +57,12 @@ document.addEventListener("keyup", (e) => {
         return
     }
 
-    if (pressedKey == "Enter") {
+    if (pressedKey === "Enter") {
         checkGuess()
+        return
+    }
+
+    if (pressedKey.length > 1) {
         return
     }
 
@@ -134,6 +136,8 @@ function checkGuess() {
     if (guessString === rightGuessString) {
         alert("You are correct!")
         guessesLeft = 0
+        updateScore(localStorage.score)
+
         return
     } else {
         guessesLeft -= 1;
@@ -204,3 +208,15 @@ document.getElementById("log-btn").addEventListener("click", (e) => {
     }
     makeBoard()
 })
+
+
+function updateScore(score) {
+    console.log("updating score!")
+    let newScore = Number(score)
+    if (newScore > 0) {
+        newScore++
+    } else {newScore = 1}
+    localStorage.score = newScore
+    //const scoreEl = document.querySelector('#count');
+    //scoreEl.textContent = score;
+}
