@@ -107,7 +107,7 @@ Yes
 RegExp - textual pattern matchers 
 You use a regular expression to find text in a string so that you can replace it, or simply to know that it exists.
 const objRegex = new RegExp('ab*', 'i');
-const literalRegex = /ab*/i;
+const literalRegex = \/ab\*/i;
 
 You can use match to return anything that matches the strings, replace to change it to something.
 const petRegex = /(dog)|(cat)|(bird)/gim;
