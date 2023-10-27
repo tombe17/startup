@@ -77,7 +77,7 @@ When let is used to declare the i variable in a loop, the i variable will only b
 18. How would you use JavaScript to select an element with the id of “byu” and change the text color of that element to green?
 document.getElementById("byu").style.color = "green";
 19. What is the opening HTML tag for a paragraph, ordered list, unordered list, second level heading, first level heading, third level heading?
-<p>, <ol>, <ul>, <h2>, <h1>, and <h3>
+\<p>, \<ol>, \<ul>, \<h2>, \<h1>, and \<h3>
 20. How do you declare the document type to be html?
 <!DOCTYPE html>
 21. What is valid javascript syntax for if, else, for, while, switch statements?
