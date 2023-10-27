@@ -79,7 +79,7 @@ document.getElementById("byu").style.color = "green";
 19. What is the opening HTML tag for a paragraph, ordered list, unordered list, second level heading, first level heading, third level heading?
 \<p>, \<ol>, \<ul>, \<h2>, \<h1>, and \<h3>
 20. How do you declare the document type to be html?
-<!DOCTYPE html>
+\<!DOCTYPE html>
 21. What is valid javascript syntax for if, else, for, while, switch statements?
 If (condition) {
 } else {
