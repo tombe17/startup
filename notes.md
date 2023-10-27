@@ -28,7 +28,8 @@ Div - division/section that outlines a container for code
 3. In the following code, what is the difference between the #title and .grid selector?
 #title creates an unique ID to be assigned to an element. .grid makes a class that can be assigned to multiple elements
 4. In the following code, what is the difference between padding and margin?
-(picture)
+
+![image](https://github.com/tombe17/startup/assets/131499102/92a98cc3-d338-4a55-9d60-dd939392387a)
 
 5. Given this HTML and this CSS how will the images be displayed using flex?
 Flex allows for items to be responsive with changes in window size
@@ -53,8 +54,8 @@ Can also use getElementById(‘name’)
 11. Which of the following are true? (mark all that are true about the DOM)
 Document Object Model - can access with document
 You can provide a CSS selector to the querySelectorAll function in order to select elements from the document. The textContent property contains all of the element's text. You can even access a textual representation of an element's HTML content with the innerHTML property. You can also createElement and then appendChild to put it into the doc
-(picture)
 
+![image](https://github.com/tombe17/startup/assets/131499102/ac648d33-62b5-413f-8345-f7e46fbd644b)
 
 12. By default, the HTML span element has a default CSS display property value of: 
 inline
@@ -95,7 +96,6 @@ For (exp. Done once, condition to execute, executed after each iteration) {
 }
 While (condition) {
 }
-
 
 22. What is the correct syntax for creating a javascript object?
 const car = {type:"Fiat", model:"500", color:"white"}; (name:value)
