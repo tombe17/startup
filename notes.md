@@ -22,7 +22,7 @@ Go to the file in terminal and then use this comand to deploy the files onto the
 
 ## HTML, CSS, JAVASCRIPT help
 1. In the following code, what does the link element do?
-The link element links between external resources (usually used for stylesheets). Only accepts attributes. Can define relation and what the link is  <link rel="stylesheet" href="styles.css">
+The link element links between external resources (usually used for stylesheets). Only accepts attributes. Can define relation and what the link is  \<link rel="stylesheet" href="styles.css">
 2. In the following code,  what does a div tag do?
 Div - division/section that outlines a container for code
 3. In the following code, what is the difference between the #title and .grid selector?
