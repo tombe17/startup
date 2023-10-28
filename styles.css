@@ -231,7 +231,7 @@ td {
     padding-right: .6em;
     padding-top: .25em;
     padding-bottom: .25em;
-    margin: .15em;
+    margin: .1em;
     font-size: .78em;
     color: #FDAFC0;
     cursor: pointer;
@@ -279,5 +279,6 @@ td {
 
 #user-name {
     font-size: 1.25em;
+    color: #FDAFC0;
 }
 

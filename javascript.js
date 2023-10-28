@@ -13,10 +13,10 @@ function makeBoard() {
     //List name
     const nameEl = document.querySelector('#user-name');
     if (localStorage.getItem('userName') != undefined) {
-        nameEl.textContent = localStorage.getItem('userName') + ": ";
+        nameEl.textContent = localStorage.getItem('userName');
     } else {
         console.log("name is undefined")
-        nameEl.textContent = "Mystery Player" + ": "
+        nameEl.textContent = "Mystery Player"
     }
 
     let board = document.getElementById("game-board")
