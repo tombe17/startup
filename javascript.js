@@ -10,6 +10,15 @@ console.log(rightGuessString)
 makeBoard()
 
 function makeBoard() {
+    //List name
+    const nameEl = document.querySelector('#user-name');
+    if (localStorage.getItem('userName') != undefined) {
+        nameEl.textContent = localStorage.getItem('userName') + ": ";
+    } else {
+        console.log("name is undefined")
+        nameEl.textContent = "Mystery Player" + ": "
+    }
+
     let board = document.getElementById("game-board")
 
     for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
@@ -136,8 +145,8 @@ function checkGuess() {
     if (guessString === rightGuessString) {
         alert("You are correct!")
         guessesLeft = 0
-        updateScore(localStorage.score)
-
+        updateScore(localStorage.getItem("score"))
+        saveScore(localStorage.getItem("score"))
         return
     } else {
         guessesLeft -= 1;
@@ -217,6 +226,42 @@ function updateScore(score) {
         newScore++
     } else {newScore = 1}
     localStorage.score = newScore
-    //const scoreEl = document.querySelector('#count');
-    //scoreEl.textContent = score;
+    console.log(localStorage.score) 
 }
+
+function saveScore(score) {
+    const userName = localStorage.getItem('userName');
+    let scores = [];
+    const scoresText = localStorage.getItem('scores');
+    if (scoresText) {
+      scores = JSON.parse(scoresText);
+    }
+    scores = updateScores(userName, score, scores);
+
+    localStorage.setItem('scores', JSON.stringify(scores));
+}
+
+function updateScores(userName, score, scores) {
+    const newScore = { name: userName, score: score };
+
+    let found = false;
+    for (const [i, prevScore] of scores.entries()) {
+      if (score > prevScore.score) {
+        scores.splice(i, 0, newScore);
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      scores.push(newScore);
+    }
+
+    if (scores.length > 10) {
+      scores.length = 10;
+    }
+
+    return scores;
+  
+}
+
