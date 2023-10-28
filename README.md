@@ -61,3 +61,11 @@ Responsive to window resizing - My app looks great on all window sizes and devic
 Application elements - Used good contrast and whitespace, made a theme with a nice vibrant blue and a light pink.
 Application text content - Consistent fonts across the whole site.
 Application images - fit a small image on the about page.
+
+##Javascript Deliverable
+For this deliverable I implemented by JavaScript so that the application works for a single user. I also added placeholders for future technology.
+
+login - When you press enter or the login button it takes you to the play page and stores your name in local storage.
+database - The score page holds the top 10 scores. Currently this is stored and retrieved from local storage, but it will be replaced with the database data later.
+WebSocket - I made a spot where it will update users on update to scores, I just put placeholder names, but will be changed with other players once it get implemented.
+application logic - I incorporated the logic to allow user input to type and guess words, and to reset the board.
