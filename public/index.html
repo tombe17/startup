@@ -29,27 +29,27 @@
 
     </header>
 
-    <main class="ctr-item">
-      <h2>Wirdle</h2>
-      <p>Can you guess the wird?</p>
-      <label for="name">Name</label>
-      <form method="get" action="play.html">
-        <input type="text" id="name"/>
-      </form>
-      <button type="submit" class="btn btn-primary" id="log-btn" onclick="login()">login</button>
-      <script>
-        //for login button on home page
-        document.addEventListener("keyup", (e) => {
-          let key = String(e.key)
-          if (key === "Enter")
-            login()
-        })
-        function login() {
-          const nameEl = document.querySelector("#name");
-          localStorage.setItem("userName", nameEl.value);
-          window.location.href = "play.html";
-        }
-      </script>
+    <main id="main-page">
+        <h2>Wirdle</h2>
+        <p>Can you guess the wird?</p>
+        <label for="name">Name</label>
+        <form method="get" action="play.html">
+          <input type="text" id="name"/>
+        </form>
+        <button type="submit" class="btn btn-primary" id="log-btn" onclick="login()">login</button>
+        <script>
+          //for login button on home page
+          document.addEventListener("keyup", (e) => {
+            let key = String(e.key)
+            if (key === "Enter")
+              login()
+          })
+          function login() {
+            const nameEl = document.querySelector("#name");
+            localStorage.setItem("userName", nameEl.value);
+            window.location.href = "play.html";
+          }
+        </script>
     </main>
 
     <footer>

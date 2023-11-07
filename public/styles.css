@@ -12,6 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    background-color: #F5FFFD;
 }
 
 #currPage {
@@ -205,6 +206,13 @@ td {
     justify-content: center; /*horizontal*/
     align-items: center;    /*vertical*/
     align-self: center;
+}
+
+#main-page {
+    justify-content: center; /*horizontal*/
+    align-items: center;    /*vertical*/
+    align-self: center;
+    background-color: #F5FFFD;
 }
 
 #game-board {

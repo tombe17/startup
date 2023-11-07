@@ -229,40 +229,60 @@ function updateScore(score) {
     console.log(localStorage.score) 
 }
 
-function saveScore(score) {
-    const userName = localStorage.getItem('userName');
-    let scores = [];
-    const scoresText = localStorage.getItem('scores');
-    if (scoresText) {
-      scores = JSON.parse(scoresText);
-    }
-    scores = updateScores(userName, score, scores);
+//Functions to store scores uses an api to post the scores
 
-    localStorage.setItem('scores', JSON.stringify(scores));
-}
+// async saveScore(score) {
+//     const userName = localStorage.getItem('userName');
+//     const newScore = {name: userName, score: score};
 
-function updateScores(userName, score, scores) {
-    const newScore = { name: userName, score: score };
+//     try {
+//         const response = await fetch('/api/score', {
+//             method: 'POST',
+//             headers: {'content-type': 'application/json'},
+//             body: JSON.stringify(newScore),
+//           });
+    
+    
+//           // Store what the service gave us as the high scores
+//           const scores = await response.json();
+//           localStorage.setItem('scores', JSON.stringify(scores));
+//         } catch {
+//           // If there was an error then just track scores locally
+//           this.updateScoresLocal(newScore);
+//     }
+// }
 
-    let found = false;
-    for (const [i, prevScore] of scores.entries()) {
-      if (score > prevScore.score) {
-        scores.splice(i, 0, newScore);
-        found = true;
-        break;
-      }
-    }
+// updateScoresLocal(newScore) {
+//     let scores = [];
+//     const scoresText = localStorage.getItem('scores');
+//     if (scoresText) {
+//       scores = JSON.parse(scoresText);
+//     }
 
-    if (!found) {
-      scores.push(newScore);
-    }
 
-    if (scores.length > 10) {
-      scores.length = 10;
-    }
+//     let found = false;
+//     for (const [i, prevScore] of scores.entries()) {
+//       if (newScore > prevScore.score) {
+//         scores.splice(i, 0, newScore);
+//         found = true;
+//         break;
+//       }
+//     }
 
-    return scores;
-}
+
+//     if (!found) {
+//       scores.push(newScore);
+//     }
+
+
+//     if (scores.length > 10) {
+//       scores.length = 10;
+//     }
+
+
+//     localStorage.setItem('scores', JSON.stringify(scores));
+// }
+
 
 setInterval(() => {
     const score = Math.floor(Math.random() * 3000);
