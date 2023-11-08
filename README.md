@@ -70,3 +70,12 @@ For this deliverable I implemented by JavaScript so that the application works f
 - Database - The score page holds the top 10 scores. Currently this is stored and retrieved from local storage, but it will be replaced with the database data later.
 - WebSocket - I made a spot where it will update users on update to scores, I just put placeholder names, but will be changed with other players once it get implemented and it will use a time interval to update players.
 - Application logic - I incorporated the logic to allow user input to type and guess words, and to reset the board.
+
+## Web Services Deliverable
+For this deliverable I added backend endpoints that receives scores and can return them all.
+
+- Node.js/Express HTTP service - done!
+- Static middleware for frontend - done!
+- Calls to third party endpoints - I call a dictionary API that gets a word and its definition.
+- Backend service endpoints - Placeholders for login that stores the current user on the server, and grabs scores to put in a table.
+- Frontend calls service endpoints - I did this using the fetch function
