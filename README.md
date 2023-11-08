@@ -74,8 +74,8 @@ For this deliverable I implemented by JavaScript so that the application works f
 ## Web Services Deliverable
 For this deliverable I added backend endpoints that receives scores and can return them all.
 
--Node.js/Express HTTP service - done!
--Static middleware for frontend - done!
--Calls to third party endpoints - I call a dictionary API that gets a word and its definition.
--Backend service endpoints - Placeholders for login that stores the current user on the server, and grabs scores to put in a table.
--Frontend calls service endpoints - I did this using the fetch function
+- Node.js/Express HTTP service - done!
+- Static middleware for frontend - done!
+- Calls to third party endpoints - I call a dictionary API that gets a word and its definition.
+- Backend service endpoints - Placeholders for login that stores the current user on the server, and grabs scores to put in a table.
+- Frontend calls service endpoints - I did this using the fetch function
