@@ -79,3 +79,10 @@ For this deliverable I added backend endpoints that receives scores and can retu
 - Calls to third party endpoints - I call a dictionary API that gets a word and its definition. (about page)
 - Backend service endpoints - Placeholders for login that stores the current user on the server, and grabs scores to put in a table.
 - Frontend calls service endpoints - I did this using the fetch function
+
+## Database Deliverable
+For this deliverable I stored scores in the database.
+
+- MongoDB Atlas database created - done!
+- Endpoints for data - I included endpoints to get, update, and post the data to Mongo.
+- Stores data in MongoDB - done!
