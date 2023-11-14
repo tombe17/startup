@@ -76,6 +76,6 @@ For this deliverable I added backend endpoints that receives scores and can retu
 
 - Node.js/Express HTTP service - done!
 - Static middleware for frontend - done!
-- Calls to third party endpoints - I call a dictionary API that gets a word and its definition.
+- Calls to third party endpoints - I call a dictionary API that gets a word and its definition. (about page)
 - Backend service endpoints - Placeholders for login that stores the current user on the server, and grabs scores to put in a table.
 - Frontend calls service endpoints - I did this using the fetch function
