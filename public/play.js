@@ -96,7 +96,7 @@ class Game {
             let letterPosition = rightGuess.indexOf(this.currentGuess[i])
             //is letter in the correct guess
             if (letterPosition === -1) {
-                letterColor = 'rgb(83, 87, 91)'  //gray
+                letterColor = 'rgb(113, 120, 127)'  //gray
 
             } else {
                 //we know it is in the word
@@ -205,7 +205,7 @@ class Game {
         while (board.hasChildNodes()) {
             board.removeChild(board.lastChild)
         }
-        let baseColor = 'rgb(113, 120, 127)'
+        let baseColor = 'rgb(83, 87, 91)'
         //get the keyboard back to normal
         for (const elem of document.getElementsByClassName("keyboard-btn")) {
             elem.style.backgroundColor = baseColor

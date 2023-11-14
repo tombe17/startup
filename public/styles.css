@@ -24,7 +24,7 @@ body {
 
 header {
     color: #F5FFFD;
-    background-color: #1A94FF;
+    background-color: #164840;
     flex: 0 60px;
 
     display: flex;
@@ -113,14 +113,14 @@ input {
 
 h2 {
     background-color: #F5FFFD;
-    color: #FDAFC0;
+    color: #34B69D;
     font-size: 2em;
     margin: 0 0em;
 }
 
 #log-btn {
-    background-color: #FDAFC0;
-    border-color: #FDAFC0;
+    background-color: #34B69D;
+    border-color: #34B69D;
     color: #F5FFFD;
     cursor: pointer;
     margin: .5em;
@@ -128,12 +128,12 @@ h2 {
 }
 
 button:hover {
-    background-color: #DC4204;
+    background-color: #164840;
 }
 
 footer {
     flex: 0 10px;
-    background: #1A94FF;
+    background: #164840;
     color: #F5FFFD;
     
     display: flex;
@@ -176,7 +176,7 @@ tr:hover {
 
 .score-hd {
     font-weight: bold;
-    border-bottom: 2px solid #FDAFC0;
+    border-bottom: 2px solid #34B69D;
     padding-left: .5em;
 }
 
@@ -193,11 +193,11 @@ td {
 .square {
     height: 1.7em;
     width: 1.7em;
-    border: 2px solid rgb(83, 87, 91);
+    border: 2px solid rgb(113, 120, 127);
     border-radius: 5px;
     margin: .10em;
     font-weight: bold;
-    color:#FDAFC0;
+    color:#34B69D;
     text-align: center;
 
 }
@@ -232,7 +232,7 @@ td {
 
 .keyboard-btn {
     display: flex;
-    background-color: rgb(113, 120, 127);
+    background-color: rgb(83, 87, 91);
     border: 0px;
     border-radius: 5px;
     padding-left: .6em;
@@ -241,12 +241,12 @@ td {
     padding-bottom: .25em;
     margin: .1em;
     font-size: .78em;
-    color: #FDAFC0;
+    color: #34B69D;
     cursor: pointer;
 }
 
 .keyboard-btn:hover {
-    background-color: rgb(83, 87, 91);
+    background-color: rgb(113, 120, 127); /*rgb(83, 87, 91) darker gray*/
 }
 
 .notifications {
@@ -276,7 +276,7 @@ td {
 #word div {
     padding-left: .15em;
     padding-right: .15em;
-    border-bottom: 2px solid #FDAFC0;
+    border-bottom: 2px solid #34B69D;
 }
 
 .center {
@@ -287,6 +287,6 @@ td {
 
 #user-name {
     font-size: 1.25em;
-    color: #FDAFC0;
+    color: #34B69D;
 }
 
