@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const DB = require('./database.js');
 
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
@@ -19,15 +20,22 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 
-// GetScores
-apiRouter.get('/scores', (_req, res) => {
+// GetScores - calls gethighscores from database.js
+apiRouter.get('/scores', async (_req, res) => {
+  const scores = await DB.getHighScores();
   res.send(scores);
 });
 
+apiRouter.get('/score/:name', async (req, res) => {
+  const score = await DB.getScore(req.params.name);
+  res.send(score);
+});
 
-// SubmitScore
-apiRouter.post('/score', (req, res) => {
-  scores = updateScores(req.body, scores);
+
+// SubmitScore - calls addScore from database.js
+apiRouter.post('/score', async (req, res) => {
+  DB.addScore(req.body.score, req.body.name);
+  const scores = await DB.getHighScores();
   res.send(scores);
 });
 
@@ -41,31 +49,3 @@ app.use((_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-
-// updateScores considers a new score for inclusion in the high scores.
-// The high scores are saved in memory and disappear whenever the service is restarted.
-let scores = [];
-function updateScores(newScore, scores) {
-  let found = false;
-  for (const [i, prevScore] of scores.entries()) {
-    if (newScore.score > prevScore.score) {
-      scores.splice(i, 0, newScore);
-      found = true;
-      break;
-    }
-  }
-
-
-  if (!found) {
-    scores.push(newScore);
-  }
-
-
-  if (scores.length > 10) {
-    scores.length = 10;
-  }
-
-
-  return scores;
-}

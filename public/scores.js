@@ -5,10 +5,10 @@ async function loadScores() {
     const response = await fetch('/api/scores');
     scores = await response.json();
 
-
     // Save the scores in case we go offline in the future
     localStorage.setItem('scores', JSON.stringify(scores));
   } catch {
+    console.log("Error!")
     // If there was an error then just use the last saved scores
     const scoresText = localStorage.getItem('scores');
     if (scoresText) {
@@ -24,7 +24,6 @@ async function loadScores() {
 function displayScores(scores) {
   const tableBodyEl = document.querySelector('#scores');
 
-
   if (scores.length) {
     // Update the DOM with the scores
     for (const [i, score] of scores.entries()) {
@@ -32,11 +31,9 @@ function displayScores(scores) {
       const nameTdEl = document.createElement('td');
       const scoreTdEl = document.createElement('td');
 
-
       positionTdEl.textContent = i + 1;
       nameTdEl.textContent = score.name;
       scoreTdEl.textContent = score.score;
-
 
       const rowEl = document.createElement('tr');
 	rowEl.classList.add("score-tr")

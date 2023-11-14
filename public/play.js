@@ -7,12 +7,15 @@ class Game {
     currentGuess;
     nextLetter;
     rightGuessString;
+    score;
 
     constructor() { //outline variables and assign them values, also make the board
         this.NUMBER_OF_GUESSES = 6;
         this.guessesLeft = this.NUMBER_OF_GUESSES;
         this.currentGuess = [];
         this.nextLetter = 0;
+        this.score = 0;
+
         this.rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)];
         console.log(this.rightGuessString);
 
@@ -66,7 +69,7 @@ class Game {
         console.log(this.currentGuess)
     }
     //guess word
-    checkGuess() {
+    async checkGuess() {
         let row = document.getElementsByClassName("letter-row")[6 - this.guessesLeft]
         let guessString = ''
         let rightGuess = Array.from(this.rightGuessString)
@@ -115,8 +118,14 @@ class Game {
         if (guessString === this.rightGuessString) {
             alert("You are correct!")
             this.guessesLeft = 0
-            this.updateScore(localStorage.getItem("score"))
-            this.saveScore(localStorage.getItem("score"))
+            //grab the score from the database
+            let response = await fetch('/api/score/'+this.getPlayerName());
+            response = await response.json();
+            this.score = response.score;
+            console.log(`We got this from the db: ${this.score}`)
+
+            this.updateScore(this.score)
+            this.saveScore()
             return
         } else {
             this.guessesLeft -= 1;
@@ -130,19 +139,23 @@ class Game {
 
     updateScore(score) {
         console.log("updating score!")
+        
         let newScore = Number(score)
         if (newScore > 0) {
             newScore++
         } else {newScore = 1}
         localStorage.score = newScore
         console.log(localStorage.score)
+        this.score = newScore;
     }    
 
     //save & update scores
-    async saveScore(score) {
+    async saveScore() {
+        //this.score += 1;
         const userName = this.getPlayerName();
-        const newScore = {name: userName, score: score};
-    
+        const newScore = {name: userName, score: this.score};
+        console.log(this.score)
+        
         try {
           const response = await fetch('/api/score', {
             method: 'POST',
