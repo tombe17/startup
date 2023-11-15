@@ -24,7 +24,7 @@ body {
 
 header {
     color: #F5FFFD;
-    background-color: #164840;
+    background-color: #D9C3BA;
     flex: 0 60px;
 
     display: flex;
@@ -71,7 +71,7 @@ a {
 }
 
 a:hover {
-    color: lightgray;
+    color: darkslategray;
 }
 
 main {
@@ -120,11 +120,15 @@ h2 {
 
 #log-btn {
     background-color: #34B69D;
-    border-color: #34B69D;
+    border-style: none;
     color: #F5FFFD;
     cursor: pointer;
     margin: .5em;
     width: 100%;
+}
+
+#log-btn:hover {
+    background-color: #164840;
 }
 
 button:hover {
@@ -133,7 +137,7 @@ button:hover {
 
 footer {
     flex: 0 10px;
-    background: #164840;
+    background: #D9C3BA;
     color: #F5FFFD;
     
     display: flex;
