@@ -1,9 +1,12 @@
 const { MongoClient } = require('mongodb');
+const bcrypt = require('bcrypt');
+const uuid = require('uuid');
 const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
 const db = client.db('wirdle');
+const userCollection = db.collection('user');
 const scoreCollection = db.collection('score');
 
 (async function testConnection() {
@@ -15,7 +18,31 @@ const scoreCollection = db.collection('score');
     process.exit(1);
 });
 
-//add a new score
+function getUser(email) {
+    return userCollection.findOne({ email: email });
+}
+
+function getUserByToken(token) {
+    console.log("getting user by token");
+    return userCollection.findOne({ token: token });
+}
+
+//creating a new user
+async function createUser(email, password) {
+    //hash password
+    const passHash = await bcrypt.hash(password, 10);
+
+    const user = {
+        email: email,
+        password: passHash,
+        token: uuid.v4(),
+    };
+    await userCollection.insertOne(user);
+
+    return user;
+}
+
+//add a new score or update an existing one
 async function addScore(score, name) {
     const updateScore = await scoreCollection.findOne({name})
     if (updateScore) {
@@ -42,4 +69,11 @@ function getHighScores() {
     return cursor.toArray();
 }
   
-module.exports = { addScore, getHighScores, getScore };
+module.exports = { 
+    getUser,
+    getUserByToken,
+    createUser,
+    addScore, 
+    getHighScores, 
+    getScore, 
+};

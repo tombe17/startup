@@ -1,0 +1,31 @@
+#loginControls {
+    flex-direction: column;
+}
+
+#playControls {
+    flex-direction: column;
+}
+
+#userName {
+    background-color: #F5FFFD;
+}
+
+#password {
+    background-color: #F5FFFD;
+}
+
+#lgn-btn {
+    background-color: #34B69D;
+    border-style: none;
+    color: #F5FFFD;
+    cursor: pointer;
+    margin: .5em;
+}
+
+#crt-btn {
+    background-color: #34B69D;
+    border-style: none;
+    color: #F5FFFD;
+    cursor: pointer;
+    margin: .5em;
+}
