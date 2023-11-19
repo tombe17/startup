@@ -28,7 +28,7 @@ app.use(`/api`, apiRouter);
 
 //CreateAuth token for new user
 apiRouter.post('/auth/create', async (req, res) => {
-  console.log("making a new user");
+  //console.log("making a new user");
   if (await DB.getUser(req.body.email)) {
     res.status(409).send({ msg: 'Existing user' }); //if they exist don't make one
   } else {
@@ -94,16 +94,21 @@ secureApiRouter.get('/scores', async (_req, res) => {
 });
 
 secureApiRouter.get('/score/:name', async (req, res) => {
+  //console.log(`geting a score for ${req.params.name}`);
+  let user = req.params.name;
+  //console.log(user);
   const score = await DB.getScore(req.params.name);
+  //console.log("is this working?")
   res.send(score);
 });
 
 
 // SubmitScore - calls addScore from database.js
 secureApiRouter.post('/score', async (req, res) => {
-  const score = { ...req.body, ip: req.ip };
-  await DB.addScore(score);
-  //DB.addScore(req.body.score, req.body.name);
+  console.log('adding score to table');
+  // const score = { ...req.body, ip: req.ip };
+  // await DB.addScore(score);
+  await DB.addScore(req.body.score, req.body.name);
   const scores = await DB.getHighScores();
   res.send(scores);
 });

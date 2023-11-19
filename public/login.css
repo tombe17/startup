@@ -23,9 +23,38 @@
 }
 
 #crt-btn {
-    background-color: #34B69D;
+    background-color: #D9C3BA;
     border-style: none;
     color: #F5FFFD;
     cursor: pointer;
     margin: .5em;
+}
+
+#crt-btn:hover {
+    background-color: #34B69D;
+}
+
+#lgt-btn {
+    background-color: #D9C3BA;
+    border-style: none;
+    color: #F5FFFD;
+    cursor: pointer;
+    margin: .25em;
+}
+
+#lgt-btn:hover {
+    background-color: #34B69D;
+}
+
+#ply-btn {
+    background-color: #34B69D;
+    border-style: none;
+    color: #F5FFFD;
+    cursor: pointer;
+    margin: .25em;
+}
+
+#playerName {
+    color: darkslategray;
+    margin-bottom: .25em;
 }

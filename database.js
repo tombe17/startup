@@ -23,7 +23,7 @@ function getUser(email) {
 }
 
 function getUserByToken(token) {
-    console.log("getting user by token");
+    //console.log("getting user by token");
     return userCollection.findOne({ token: token });
 }
 
@@ -49,6 +49,7 @@ async function addScore(score, name) {
         //console.log("Updating database")
         return await scoreCollection.updateOne({name}, {$set :{"score":score}})
     }
+    //console.log('adding new score')
     const result = await scoreCollection.insertOne({score, name});
     return result;
 }

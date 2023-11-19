@@ -119,12 +119,25 @@ class Game {
             alert("You are correct!")
             this.guessesLeft = 0
             //grab the score from the database
-            let response = await fetch('/api/score/'+this.getPlayerName());
-            response = await response.json();
-            this.score = response.score;
-            console.log(`We got this from the db: ${this.score}`)
+            // let response = await fetch('/api/score/:'+this.getPlayerName());
+            // response = response.json();
+            // this.score = response.score;
+            // console.log(`We got this from the db: ${this.score}`)
 
-            this.updateScore(this.score)
+            //check if they are in the database. If not, then send to make them a new account
+            // let response = await fetch('/api/score/:'+this.getPlayerName());
+            // const contentType = response.headers.get("content-type");
+            // if (contentType && contentType.indexOf("application/json") !== -1) {
+            //     console.log("It is JSON");
+            //     //get score
+            //     //increment by 1
+            // } else {
+            //     console.log("We need to make a user")
+            //     //make user + set score to 1
+            // }
+
+
+            //this.updateScore(this.score)
             this.saveScore()
             return
         } else {
@@ -151,24 +164,46 @@ class Game {
 
     //save & update scores
     async saveScore() {
-        //this.score += 1;
         const userName = this.getPlayerName();
-        const newScore = {name: userName, score: this.score};
+        let newScore = 1;
+        //first check if they are in db and can grab score
+        let response = await fetch('/api/score/' + userName);
+        const contentType = response.headers.get("content-type");
+        //console.log(response);
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+            //console.log("It is JSON");
+            //get score + increment by 1
+            response = await response.json();
+            //console.log(response.score);
+            this.score = response.score;
+            //increment by 1
+            this.score++;
+            newScore = this.score;
+            newScore;
+        } else {    //not in database
+            console.log("We need to make a user")
+            //set score to 1 and then pass score through next function
+            localStorage.score = newScore
+            console.log(localStorage.score)
+            this.score = newScore;
+        }
+
+        const userScore = {name: userName, score: newScore};
         console.log(this.score)
         
         try {
           const response = await fetch('/api/score', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
-            body: JSON.stringify(newScore),
+            body: JSON.stringify(userScore),
           });
-    
+          
           // Store what the service gave us as the high scores
           const scores = await response.json();
           localStorage.setItem('scores', JSON.stringify(scores));
         } catch {
           // If there was an error then just track scores locally
-          this.updateScoresLocal(newScore);
+          this.updateScoresLocal(userScore);
         }
     }
     

@@ -8,7 +8,7 @@
     console.log("checking if logged in");
     const userName = localStorage.getItem('userName');
     if (userName) { //if they are logged in then display the controls to play, else only show the login stuff
-      document.querySelector('#playerName').textContent = userName;
+      document.querySelector('#playerName').textContent = "Hello, " + userName;
       setDisplay('loginControls', 'none');
       setDisplay('playControls', 'flex');
     } else {
