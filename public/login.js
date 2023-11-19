@@ -31,7 +31,11 @@
     console.log("in create/login");
     const userName = document.querySelector('#userName')?.value;
     const password = document.querySelector('#userPassword')?.value;
-    console.log(`my userName is ${userName} and password is ${password}`);
+    //console.log(`my userName is ${userName} and password is ${password}`);
+    if (userName === "" || password === "") {
+      console.log("no username/password inserted")
+      return;
+    }
     const response = await fetch(endpoint, {
       method: 'post',
       body: JSON.stringify({ email: userName, password: password }),
