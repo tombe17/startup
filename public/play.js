@@ -1,5 +1,10 @@
 import { WORDS } from "./words.js";
 
+//Event messages
+const GameEndEvent = 'gameEnd';
+const GameStartEvent = 'gameStart';
+let isPlaying = true;
+
 class Game {
 
     NUMBER_OF_GUESSES;
@@ -8,6 +13,7 @@ class Game {
     nextLetter;
     rightGuessString;
     score;
+    socket;
 
     constructor() { //outline variables and assign them values, also make the board
         this.NUMBER_OF_GUESSES = 6;
@@ -34,6 +40,11 @@ class Game {
                 }
             board.appendChild(row)
         }
+
+        changeButtons(isPlaying);
+
+        this.configureWebSocket();
+        console.log(`Score: ${this.score}`);
     }
 
     getPlayerName() {
@@ -118,27 +129,16 @@ class Game {
         if (guessString === this.rightGuessString) {
             alert("You are correct!")
             this.guessesLeft = 0
-            //grab the score from the database
-            // let response = await fetch('/api/score/:'+this.getPlayerName());
-            // response = response.json();
-            // this.score = response.score;
-            // console.log(`We got this from the db: ${this.score}`)
-
-            //check if they are in the database. If not, then send to make them a new account
-            // let response = await fetch('/api/score/:'+this.getPlayerName());
-            // const contentType = response.headers.get("content-type");
-            // if (contentType && contentType.indexOf("application/json") !== -1) {
-            //     console.log("It is JSON");
-            //     //get score
-            //     //increment by 1
-            // } else {
-            //     console.log("We need to make a user")
-            //     //make user + set score to 1
-            // }
-
+            //take away submit button and add reset
+            isPlaying = false;
+            changeButtons(isPlaying);
 
             //this.updateScore(this.score)
-            this.saveScore()
+            await this.saveScore()
+            //broadcast score to everyone 
+            console.log(`Score: ${this.score}`);
+            this.broadcastEvent(this.getPlayerName(), GameEndEvent, this.score);
+
             return
         } else {
             this.guessesLeft -= 1;
@@ -146,21 +146,23 @@ class Game {
             this.nextLetter = 0;
             if (this.guessesLeft === 0) {
                 alert("Incorrect. Better luck next time!")
+                isPlaying = false;
+                changeButtons(isPlaying);
             }
         }
     }
 
-    updateScore(score) {
-        console.log("updating score!")
+    // updateScore(score) {
+    //     console.log("updating score!")
         
-        let newScore = Number(score)
-        if (newScore > 0) {
-            newScore++
-        } else {newScore = 1}
-        localStorage.score = newScore
-        console.log(localStorage.score)
-        this.score = newScore;
-    }    
+    //     let newScore = Number(score)
+    //     if (newScore > 0) {
+    //         newScore++
+    //     } else {newScore = 1}
+    //     localStorage.score = newScore
+    //     console.log(localStorage.score)
+    //     this.score = newScore;
+    // }    
 
     //save & update scores
     async saveScore() {
@@ -179,7 +181,7 @@ class Game {
             //increment by 1
             this.score++;
             newScore = this.score;
-            newScore;
+            //newScore;
         } else {    //not in database
             console.log("We need to make a user")
             //set score to 1 and then pass score through next function
@@ -235,18 +237,74 @@ class Game {
     
     //reset
     reset() {
-        let board = document.getElementById("game-board")
-    
-        while (board.hasChildNodes()) {
-            board.removeChild(board.lastChild)
-        }
+        //reset board guesses
+        this.NUMBER_OF_GUESSES = 6;
+        this.guessesLeft = this.NUMBER_OF_GUESSES;
+        this.currentGuess = [];
+        this.nextLetter = 0;
+        this.score = 0;
+
+        this.rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)];
+        console.log(this.rightGuessString);
+
         let baseColor = 'rgb(83, 87, 91)'
         //get the keyboard back to normal
         for (const elem of document.getElementsByClassName("keyboard-btn")) {
-            elem.style.backgroundColor = baseColor
+            if (elem.id === "backspace") {
+                elem.style.backgroundColor = 'rgb(227, 98, 122)';
+            } else if (elem.id === "enter") {
+                elem.style.backgroundColor = '#34B69D';
+            } else {
+                elem.style.backgroundColor = baseColor
+            }
         }
-        game = new Game();
-    }    
+
+        //get board back to normal
+        let squareColor = '#F5FFFD';
+        for (const elem of document.getElementsByClassName("square")) {
+            elem.style.backgroundColor = squareColor;
+            elem.textContent = '';
+        }
+        isPlaying = true;
+        changeButtons(isPlaying);
+
+        //broadcast that a new game started
+        this.broadcastEvent(this.getPlayerName(), GameStartEvent, this.score);
+    }
+    
+    configureWebSocket() {
+        const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+        this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+        this.socket.onopen = (event) => {
+          this.displayMsg('system', 'game', 'connected');
+        };
+        this.socket.onclose = (event) => {
+          this.displayMsg('system', 'game', 'disconnected');
+        };
+        this.socket.onmessage = async (event) => {
+          const msg = JSON.parse(await event.data.text());
+          if (msg.type === GameEndEvent) {
+            this.displayMsg('player', msg.from, `found ${msg.value.score} wirds`);
+          } else if (msg.type === GameStartEvent) {
+            this.displayMsg('player', msg.from, `started a new game`);
+          }
+        };
+      }
+    
+      displayMsg(cls, from, msg) {
+        const chatText = document.querySelector('#player-messages');
+        chatText.innerHTML =
+          `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
+      }
+    
+      broadcastEvent(from, type, value) {
+        const event = {
+          from: from,
+          type: type,
+          value: value,
+        };
+        this.socket.send(JSON.stringify(event));
+      }
 }
 
 let game = new Game();
@@ -323,15 +381,22 @@ function shadeKeyBoard(letter, color) {
     }
 }
 
+function changeButtons(status) {
+    let subElem = document.getElementById("sub-btn");
+    let rstElem = document.getElementById("rst-btn");
+    //if true then playing and show submit button
+    if (status === true) {
+        console.log("playing game");
+        subElem.style.display = 'flex';
+        rstElem.style.display = 'none';
+    } else { //if false then show reset button
+        subElem.style.display = 'none';
+        rstElem.style.display = 'flex';
+    }
+}
+
 //reset button
-document.getElementById("log-btn").addEventListener("click", (e) => {
+document.getElementById("rst-btn").addEventListener("click", (e) => {
     console.log("Resetting...")
     game.reset()
 })
-
-setInterval(() => {
-    const score = Math.floor(Math.random() * 3000);
-    const chatText = document.querySelector('#player-messages');
-    chatText.innerHTML =
-      `<div class="event"><span class="player-event">Eich</span> scored ${score}</div>` + chatText.innerHTML;
-}, 5000);

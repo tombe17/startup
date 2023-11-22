@@ -254,33 +254,13 @@ td {
 }
 
 #backspace {
-    display: flex;
     background-color: rgb(227, 98, 122);
-    border: 0px;
-    border-radius: 5px;
-    padding-left: .6em;
-    padding-right: .6em;
-    padding-top: .25em;
-    padding-bottom: .25em;
-    margin: .1em;
-    font-size: .78em;
     color: #F5FFFD;
-    cursor: pointer;
 }
 
 #enter {
-    display: flex;
     background-color: #34B69D;
-    border: 0px;
-    border-radius: 5px;
-    padding-left: .6em;
-    padding-right: .6em;
-    padding-top: .25em;
-    padding-bottom: .25em;
-    margin: .1em;
-    font-size: .78em;
     color: #F5FFFD;
-    cursor: pointer;
 }
 
 #rst-btn {
@@ -293,6 +273,18 @@ td {
 
 #rst-btn:hover {
     background-color: #34B69D;
+}
+
+#sub-btn {
+    background-color: #34B69D;
+    border-style: none;
+    color: #F5FFFD;
+    cursor: pointer;
+    margin: .5em;
+}
+
+#sub-btn:hover {
+    background-color: #164840;
 }
 
 .notifications {

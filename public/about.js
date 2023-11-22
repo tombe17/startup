@@ -3,7 +3,7 @@ import { WORDS } from "./words.js";
 let wordOfDay = WORDS[Math.floor(Math.random() * WORDS.length)]
 console.log(wordOfDay)
 
-function displayQuote() {
+function displayWord() {
     const URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/' + wordOfDay;
     fetch(URL)
         .then((response) => {
@@ -30,5 +30,6 @@ function displayQuote() {
         });
 }
 
-displayQuote();
+setInterval(displayWord(), 
+86400000);
   
