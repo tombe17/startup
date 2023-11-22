@@ -400,3 +400,8 @@ document.getElementById("rst-btn").addEventListener("click", (e) => {
     console.log("Resetting...")
     game.reset()
 })
+
+document.getElementById("sub-btn").addEventListener("click", (e) => {
+    console.log("checking guess")
+    game.checkGuess();
+})
