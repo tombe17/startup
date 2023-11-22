@@ -284,7 +284,7 @@ class Game {
         this.socket.onmessage = async (event) => {
           const msg = JSON.parse(await event.data.text());
           if (msg.type === GameEndEvent) {
-            this.displayMsg('player', msg.from, `found ${msg.value.score} wirds`);
+            this.displayMsg('player', msg.from, `got the wird!`);
           } else if (msg.type === GameStartEvent) {
             this.displayMsg('player', msg.from, `started a new game`);
           }
@@ -386,7 +386,7 @@ function changeButtons(status) {
     let rstElem = document.getElementById("rst-btn");
     //if true then playing and show submit button
     if (status === true) {
-        console.log("playing game");
+        //console.log("playing game");
         subElem.style.display = 'flex';
         rstElem.style.display = 'none';
     } else { //if false then show reset button
