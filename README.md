@@ -86,3 +86,11 @@ For this deliverable I stored scores in the database.
 - MongoDB Atlas database created - done!
 - Endpoints for data - I included endpoints to get, update, and post the data to Mongo.
 - Stores data in MongoDB - done!
+
+## Login Deliverable
+For this deliverable I associate the score with the logged in user.
+
+- User registration - Creates a new account in the database.
+- Existing user - Stores the scores under the same user if the user already exists.
+- Use MongoDB to store credentials - Stores both user and their scores.
+- Restricts functionality - can't play or access any scores if you are not logged in.
