@@ -44,7 +44,7 @@ export function Game(props) {
   const handleClick = (key) => {
     {key == 'DEL' && (key = 'Backspace')}
     {key == 'ENTER' && (key = 'Enter')}
-    console.log(key)
+    //console.log(key)
     handleEvent(key)
   } 
 
