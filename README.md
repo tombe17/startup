@@ -94,3 +94,11 @@ For this deliverable I associate the score with the logged in user.
 - Existing user - Stores the scores under the same user if the user already exists.
 - Use MongoDB to store credentials - Stores both user and their scores.
 - Restricts functionality - can't play or access any scores if you are not logged in.
+
+## WebSocket Deliverable
+For this deliverable I used webSocket to update the results of games on the frontend in realtime.
+
+- Backend listens for WebSocket connection - done!
+- Frontend makes WebSocket connection - done!
+- Data sent over WebSocket connection - done!
+- WebSocket data displayed - When users get the word or start a new game it is broadcasted to other people.
