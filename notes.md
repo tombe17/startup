@@ -1,4 +1,4 @@
-2# Notes from Startup
+## Notes from Startup
 Using GitHub is super useful and allows for an easy way to interact with the internet. Always remember to commit changes and push them out to the repository.
 
 ## Server
@@ -176,31 +176,31 @@ coinToss
 //    Toss completed
 
 ## Web Services & React Help
-What ports are used for HTTP, HTTPS, SSH?
+1. What ports are used for HTTP, HTTPS, SSH?
 HTTP - 80
 HTTPS - 443
 SSH - 22
 
 
-What do HTTP status codes in the 300, 400, 500 range indicate?
+2. What do HTTP status codes in the 300, 400, 500 range indicate?
 200 - Ok
 300-399 Redirection messages (300 - has multiple responses, 301 - URL has been moved)
 400-499 Client Errors (401 - Unauthorized, 404 - not found 
 500-599 Server Errors (501 - not implemented, 
 
 
-What does the HTTP header content-type allows you to do?
+3. What does the HTTP header content-type allows you to do?
 The http header content-type tells you what type of content is being transmitted, can use text/css text/html, image/png, image/webp (content optimized for web can be used on mobile fairly easily, audio, video, and application/javascript
 
 
-What do the following attributes of a cookie do?
-Domain The Domain attribute specifies which server can receive a cookie.If specified, then cookies are available on the server and its subdomains If the server does not specify a Domain, the cookies are available on the server but not on its subdomains. Therefore, specifying Domain is less restrictive than omitting it. However, it can be helpful when subdomains need to share information about a user.
-Secure requires HTTPS to be used when sending the cookie back to the server. 
-Path The Path attribute indicates a URL path that must exist in the requested URL in order to send the Cookie header. (/docs
-SameSite will only return the cookie to the domain that generated it. (‘strict’, lax, or none)
-HTTPOnly tells the browser to not allow JavaScript running on the browser to read the cookie.
+4. What do the following attributes of a cookie do?
+- **Domain** The Domain attribute specifies which server can receive a cookie.If specified, then cookies are available on the server and its subdomains If the server does not specify a Domain, the cookies are available on the server but not on its subdomains. Therefore, specifying Domain is less restrictive than omitting it. However, it can be helpful when subdomains need to share information about a user.
+- **Secure** requires HTTPS to be used when sending the cookie back to the server. 
+- **Path** The Path attribute indicates a URL path that must exist in the requested URL in order to send the Cookie header. (/docs
+- **SameSite** will only return the cookie to the domain that generated it. (‘strict’, lax, or none)
+- **HTTPOnly** tells the browser to not allow JavaScript running on the browser to read the cookie.
 
-Assuming the following Express middleware, what would be the console.log output for an HTTP GET request with a URL path of /foo/bar?
+5. Assuming the following Express middleware, what would be the console.log output for an HTTP GET request with a URL path of /foo/bar?
 app.use(function (req, res, next) {
  console.log('taco');
  next();
@@ -212,90 +212,88 @@ console.log('soup');
 It will first run the console.log(‘taco’) because there is the next button.
 
 
-Given the following Express service code: What does the following JavaScript fetch return?
+6. Given the following Express service code: What does the following JavaScript fetch return?
 fetch(url)
 	.then(()=>{})
 	.catch((err)=>{}) //catch errors
 	.finally(happens regardless)
 
 
-Given the following MongoDB query
+7. Given the following MongoDB query
 { cost: { $gt: 10 }, name: /fran.*/}
 select all of the matching documents.
 This query would return items with a cost greater than 10 and a name with fran in it.
 
 
-How should you store user passwords in a database?
+8. How should you store user passwords in a database?
 you want to hash the password using a salt (which should be different for every user) and a secure 1-way algorithm and store that, throwing away the original password. Then, when you want to verify a password, you hash the value (using the same hashing algorithm and salt) and compare it to the hashed value in the database.
 
 
-Assuming the following Node.js service code is executing with websockets, what will be logged to the console of the web browser?
+9. Assuming the following Node.js service code is executing with websockets, what will be logged to the console of the web browser?
 Every time a message is received on any socket, it proxies the message to every connected client, which is the basis of any group-chat app. Messages can either be text or JSON encoded 
 If it’s through node.js it will run through there
-What is the WebSocket protocol used for?
+
+10. What is the WebSocket protocol used for?
 WebSocket is bidirectional, a full-duplex protocol that is used in the same scenario of client-server communication, unlike HTTP it starts from ws:// or wss://. It is a stateful protocol, which means the connection between client and server will keep alive until it is terminated by either party (client or server). After closing the connection by either of the client and server, the connection is terminated from both ends. 
-What is JSX and how are the curly braces rendered?
+
+11. What is JSX and how are the curly braces rendered?
 Jsx is for react, and the curly braces show that the inside should be rendered as JavaScript JSX allows us to write HTML elements in JavaScript and place them in the DOM without any createElement()  and/or appendChild() methods.
-
-
 JSX converts HTML tags into react elements.
 
-
-Assuming a HTML document with a 
-<div id="root"></div>
+12. Assuming a HTML document with a 
+	<div id="root"></div>
 element, what content will the following React component generate?
-      function Welcome(props) {
-        return <h1>Hello, {props.name}</h1>;
-      }
-      function App() {
-        return (
-          <div>
-            <Welcome name="Sara" />
-            <Welcome name="Cahal" />
-            <Welcome name="Edite" />
-          </div>
-        );
-      }
-      const root = ReactDOM.createRoot(document.getElementById('root'));
-      root.render(<App />);
-<h1>Hello, Sara</h1>
-<h1>Hello, Cahal</h1>
-<h1>Hello, Edite</h1>
+	function Welcome(props) {
+		return <h1>Hello, {props.name}</h1>;
+	}
+	function App() {
+		return (
+		  <div>
+		    <Welcome name="Sara" />
+		    <Welcome name="Cahal" />
+		    <Welcome name="Edite" />
+		  </div>
+		);
+	}
+	const root = ReactDOM.createRoot(document.getElementById('root'));
+	root.render(<App />);
+	<h1>Hello, Sara</h1>
+	<h1>Hello, Cahal</h1>
+	<h1>Hello, Edite</h1>
 
-
-Assuming a HTML document with a 
-<div id="root"></div>
+13. Assuming a HTML document with a 
+	<div id="root"></div>
 element, what content will the following React component generate?
-    function Numbers() { 
-      const numbers = [1, 2, 3, 4, 5];
-      const listItems = numbers.map((number) =>
-        <li>{number}</li>
-      );
-      return(<ul>{listItems}</ul>)
-    }
-    const root = ReactDOM.createRoot(document.getElementById('root')); 
-    root.render(<Numbers/>);
-<ul>
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-</ul>
+	function Numbers() { 
+		const numbers = [1, 2, 3, 4, 5];
+		const listItems = numbers.map((number) =>
+			<li>{number}</li>
+		);
+		return(<ul>{listItems}</ul>)
+	}
+	const root = ReactDOM.createRoot(document.getElementById('root')); 
+	root.render(<Numbers/>);
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
 
 
-What does the following React component do?
-function Example() {
-  // Declare a new state variable, which we'll call "count" 
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );}
+14. What does the following React component do?
+	function Example() {
+	  // Declare a new state variable, which we'll call "count" 
+	  const [count, setCount] = useState(0);
+	  return (
+	    <div>
+	      <p>You clicked {count} times</p>
+	      <button onClick={() => setCount(count + 1)}>
+	        Click me
+	      </button>
+	    </div>
+	  );}
 The provided code is a simple React functional component called Example that uses the useState hook to manage a state variable called "count." This component renders a paragraph (<p>) displaying the current value of "count" and a button. When the button is clicked, the value of "count" is incremented by 1.
 
 
