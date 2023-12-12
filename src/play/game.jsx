@@ -31,7 +31,6 @@ export function Game(props) {
   let letterIndex = useRef(0);
   let round = useRef(0);
 
-  //const [currentGuess, setCurrentGuess] = useState([]);
   const [correctWord, setCorrectWord] = useState(WORDS[Math.floor(Math.random() * WORDS.length)])
   const [isPlaying, setIsPlaying] = useState(true);
   const [squareStates, setSquareStates] = useState(boardRows.map(row => row.map(() => '')));
@@ -43,7 +42,6 @@ export function Game(props) {
   }
 
   const handleClick = (key) => {
-    //console.log('handling click: ' + key)
     handleEvent(key)
   } 
 
@@ -55,7 +53,6 @@ export function Game(props) {
   function handleEvent(key) {
     let pressedKey = key;
     //If Backspace or Enter then do corresponding action
-    //{isPlaying == false ? console.log("NOPE") : null}
     {pressedKey == 'Backspace' && deleteLetter()}
     {pressedKey == 'Enter' && checkGuess()}
 
@@ -104,7 +101,6 @@ export function Game(props) {
   }
 
   const checkGuess = () => {
-    //console.log(isPlaying)
     //check if playing
     if (isPlaying === false) {
       console.log("can't play")
@@ -208,12 +204,9 @@ export function Game(props) {
     //first check if they are in db and can grab score
     let response = await fetch('/api/score/' + userName);
     const contentType = response.headers.get("content-type");
-    //console.log(response);
     if (contentType && contentType.indexOf("application/json") !== -1) {
-        //console.log("It is JSON");
         //get score + increment by 1
         response = await response.json();
-        //console.log(response.score);
         //increment by 1
         newScore = response.score + 1;
     } else {    //not in database
@@ -295,10 +288,6 @@ export function Game(props) {
     //broadcast event
     GameNotifier.broadcastEvent(userName, GameEvent.Start, {});
   }
-
-  // useEffect(() =>{
-  //   console.log(isPlaying)
-  // }, [isPlaying]);
 
   useEffect(() => {
     document.addEventListener('keyup', handleKeyUp);
