@@ -222,29 +222,30 @@ fetch(url)
 7. Given the following MongoDB query
 { cost: { $gt: 10 }, name: /fran.*/}
 select all of the matching documents.
+
 This query would return items with a cost greater than 10 and a name with fran in it.
 
 
-8. How should you store user passwords in a database?
+9. How should you store user passwords in a database?
 you want to hash the password using a salt (which should be different for every user) and a secure 1-way algorithm and store that, throwing away the original password. Then, when you want to verify a password, you hash the value (using the same hashing algorithm and salt) and compare it to the hashed value in the database.
 
 
-9. Assuming the following Node.js service code is executing with websockets, what will be logged to the console of the web browser?
+10. Assuming the following Node.js service code is executing with websockets, what will be logged to the console of the web browser?
 Every time a message is received on any socket, it proxies the message to every connected client, which is the basis of any group-chat app. Messages can either be text or JSON encoded 
 If it’s through node.js it will run through there
 
-10. What is the WebSocket protocol used for?
+11. What is the WebSocket protocol used for?
 WebSocket is bidirectional, a full-duplex protocol that is used in the same scenario of client-server communication, unlike HTTP it starts from ws:// or wss://. It is a stateful protocol, which means the connection between client and server will keep alive until it is terminated by either party (client or server). After closing the connection by either of the client and server, the connection is terminated from both ends. 
 
-11. What is JSX and how are the curly braces rendered?
+12. What is JSX and how are the curly braces rendered?
 Jsx is for react, and the curly braces show that the inside should be rendered as JavaScript JSX allows us to write HTML elements in JavaScript and place them in the DOM without any createElement()  and/or appendChild() methods.
 JSX converts HTML tags into react elements.
 
-12. Assuming a HTML document with a 
+13. Assuming a HTML document with a 
 	<div id="root"></div>
 element, what content will the following React component generate?
 	function Welcome(props) {
-		return <h1>Hello, {props.name}</h1>;
+		return \<h1>Hello, {props.name}</h1>;
 	}
 	function App() {
 		return (
@@ -257,9 +258,9 @@ element, what content will the following React component generate?
 	}
 	const root = ReactDOM.createRoot(document.getElementById('root'));
 	root.render(<App />);
-	<h1>Hello, Sara</h1>
-	<h1>Hello, Cahal</h1>
-	<h1>Hello, Edite</h1>
+	\<h1>Hello, Sara</h1>
+	\<h1>Hello, Cahal</h1>
+	\<h1>Hello, Edite</h1>
 
 13. Assuming a HTML document with a 
 	<div id="root"></div>
@@ -267,19 +268,19 @@ element, what content will the following React component generate?
 	function Numbers() { 
 		const numbers = [1, 2, 3, 4, 5];
 		const listItems = numbers.map((number) =>
-			<li>{number}</li>
+			\<li>{number}</li>
 		);
-		return(<ul>{listItems}</ul>)
+		return(\<ul>{listItems}</ul>)
 	}
 	const root = ReactDOM.createRoot(document.getElementById('root')); 
 	root.render(<Numbers/>);
-	<ul>
-		<li>1</li>
-		<li>2</li>
-		<li>3</li>
-		<li>4</li>
-		<li>5</li>
-	</ul>
+	\<ul>
+		\<li>1</li>
+		\<li>2</li>
+		\<li>3</li>
+		\<li>4</li>
+		\<li>5</li>
+	\</ul>
 
 
 14. What does the following React component do?
@@ -288,8 +289,8 @@ element, what content will the following React component generate?
 	  const [count, setCount] = useState(0);
 	  return (
 	    <div>
-	      <p>You clicked {count} times</p>
-	      <button onClick={() => setCount(count + 1)}>
+	      \<p>You clicked {count} times</p>
+	      \<button onClick={() => setCount(count + 1)}>
 	        Click me
 	      </button>
 	    </div>
@@ -297,15 +298,15 @@ element, what content will the following React component generate?
 The provided code is a simple React functional component called Example that uses the useState hook to manage a state variable called "count." This component renders a paragraph (<p>) displaying the current value of "count" and a button. When the button is clicked, the value of "count" is incremented by 1.
 
 
-What are React Hooks used for?
+15. What are React Hooks used for?
 React Hooks are functions that allow functional components in React to manage state, lifecycle events, and other React features that were previously only available in class components.
 
 
-What is the useEffect hook used for?
+16. What is the useEffect hook used for?
 useEffect is a React Hook that allows functional components to perform side effects. Side effects in React components are operations that affect the external world, such as fetching data from an API, updating the DOM, subscribing to external events, and more.
 
 
-16. What does this code do?
+17. What does this code do?
 export default function App() {
   return (
     <BrowserRouter>
@@ -322,23 +323,25 @@ export default function App() {
 }
 The code you provided is a React component using React Router for navigation. It seems to define a simple application structure with different routes and corresponding components. BrowserRouter: This component provides the routing context for the entire application. It enables the use of the routing features provided by React Router. Routes: This component is a container for the individual Route components. It helps organize the routing structure.
 
-17. What role does npm play in web development?
+
+18. What role does npm play in web development?
 npm (Node Package Manager) plays a crucial role in web development, particularly in the context of JavaScript and Node.js development. Here are some key roles that npm serves in web development: Manages packages, configures, locks files, builds, and deploys
 
-18. What does package.json do in a npm project?
+
+19. What does package.json do in a npm project?
 Build Tool Integration: npm integrates with various build tools and task runners (e.g., Webpack, Gulp) through scripts defined in the package.json file. This enables automation of tasks like bundling, transpiling, and minifying code.
 package.json is a configuration file used in Node.js and npm (Node Package Manager) projects. It is a JSON (JavaScript Object Notation) file that contains metadata about the project, as well as configuration settings and a list of project dependencies. The package.json file plays a crucial role in managing Node.js projects and is a key component in the npm ecosystem.
 
 
-19. What does the fetch function do?
+20. What does the fetch function do?
 The fetch function is a modern JavaScript API that provides an easy and flexible way to make HTTP requests. It is commonly used for fetching resources, such as data from an API, and is especially prevalent in web development. The fetch function returns a Promise that resolves to the Response to that request, whether it is successful or not. 
 
 
-20. What does node.js do?
+21. What does node.js do?
 Node.js is a JavaScript runtime environment that allows developers to execute JavaScript code on the server side. It is built on the V8 JavaScript runtime, which is the same engine that powers the Google Chrome browser. Node.js is designed to be lightweight, efficient, and scalable, making it well-suited for building networked and server-side applications.
 
 
-21. What does Vite do?
+22. What does Vite do?
 Vite is a build tool and development server designed for modern web development. It is specifically created to enhance the development experience for web applications, particularly those built with frameworks like Vue.js and React. The name "Vite" is derived from the French word for "fast," reflecting its focus on speed and efficiency. It can be used to run frontend and debug it pretty easily
 
 
