@@ -113,7 +113,7 @@ export function Game(props) {
     const _round = round.current;
     const _letterIndex = letterIndex.current;
     let currentGuessArray = squareStates[_round];
-    console.log('Round: ' + _round, '\n', currentGuessArray, '\n', "Right Word: " + correctWord)
+    //console.log('Round: ' + _round, '\n', currentGuessArray, '\n', "Right Word: " + correctWord)
     //make an if to make sure it is 5 letters long
     let isRightLength = checkGuessLength(currentGuessArray)
     

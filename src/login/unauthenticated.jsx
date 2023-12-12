@@ -12,18 +12,17 @@ export function Unauthenticated(props) {
     }
 
     async function loginUser() {
-        console.log('logging in');
+        //console.log('logging in');
         loginOrCreate(`/api/auth/login`);
     }
     
     async function createUser() {
-        console.log('making user');
+        //console.log('making user');
         loginOrCreate(`/api/auth/create`);
     }
     
     async function loginOrCreate(endpoint) {
         //console.log('in create/login');
-        console.log("User: " + userName, "pass: " + password)
         if (userName === '' || password === '') {
             console.log('no username/password inserted');
             return;
