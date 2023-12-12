@@ -1,0 +1,43 @@
+table {
+    background-color: #F5FFFD;
+    padding: 2em;
+    margin: .75em;
+}
+
+.score-tr {
+    display: grid;
+    grid-template-columns: 33% 34% 33%; 
+    align-items: baseline;
+
+}
+
+/*fix this!!*/
+tr:hover {
+    font-weight: bold;
+}
+
+.score-tbl {
+    font-size: 3.25vw;
+}
+
+@media (min-width: 43em) {
+    .score-tbl {
+        font-size: 1em;
+    }
+}
+
+.score-hd {
+    font-weight: bold;
+    border-bottom: 2px solid #34B69D;
+    padding-left: .5em;
+}
+
+tr {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+td {
+    background-color: #F5FFFD;
+}

@@ -1,16 +1,18 @@
 #loginControls {
     flex-direction: column;
+    text-align: center;
 }
 
 #playControls {
     flex-direction: column;
+    text-align: center;
 }
 
 #userName {
     background-color: #F5FFFD;
 }
 
-#password {
+#userPassword {
     background-color: #F5FFFD;
 }
 
@@ -54,7 +56,20 @@
     margin: .25em;
 }
 
+#ply-btn:hover {
+    background-color: #164840;
+}
+
 #playerName {
     color: darkslategray;
     margin-bottom: .25em;
+}
+
+.ctr-text {
+    text-align: center;
+}
+
+#err-btn {
+    background-color: #34B69D;
+    border: 0;
 }

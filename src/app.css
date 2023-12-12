@@ -5,6 +5,7 @@
 
 html {
     height: 100%;
+    margin: 0;
 }
 
 body {
@@ -15,18 +16,34 @@ body {
     background-color: #F5FFFD;
 }
 
-#currPage {
-    font-weight: bold;
+main {
+    flex: 1;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    background-color: #F5FFFD;
+    padding: 1em;
 }
-#currPage:hover {
+
+footer {
+    flex: 0 10px;
+    background: #D9C3BA;
     color: #F5FFFD;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+footer div {
+    padding: 1em;
 }
 
 header {
     color: #F5FFFD;
     background-color: #D9C3BA;
     flex: 0 60px;
-
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -74,13 +91,10 @@ a:hover {
     color: darkslategray;
 }
 
-main {
-    flex: 1;
-    font-size: 1.5em;
+#root {
     display: flex;
     flex-direction: column;
-    background-color: #F5FFFD;
-    padding: 1em;
+    height: 100%;
 }
 
 p {
@@ -133,65 +147,6 @@ h2 {
 
 button:hover {
     background-color: #164840;
-}
-
-footer {
-    flex: 0 10px;
-    background: #D9C3BA;
-    color: #F5FFFD;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-footer div {
-    padding: 1em;
-}
-
-table {
-    background-color: #F5FFFD;
-    padding: 2em;
-    margin: .75em;
-}
-
-.score-tr {
-    display: grid;
-    grid-template-columns: 33% 34% 33%; 
-    align-items: baseline;
-
-}
-
-/*fix this!!*/
-tr:hover {
-    font-weight: bold;
-}
-
-.score-tbl {
-    font-size: 3.25vw;
-}
-
-@media (min-width: 43em) {
-    .score-tbl {
-        font-size: 1em;
-    }
-}
-
-.score-hd {
-    font-weight: bold;
-    border-bottom: 2px solid #34B69D;
-    padding-left: .5em;
-}
-
-tr {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-td {
-    background-color: #F5FFFD;
 }
 
 .square {
@@ -287,44 +242,16 @@ td {
     background-color: #164840;
 }
 
-.notifications {
-    display: block;
-    position: absolute;
-    float: left;
-    max-width: fit-content;
-    font-size: .5em;
-}
-
-@media (max-width: 42em) {
-    .notifications {
-        visibility: hidden;
-    }
-}
-
-.info {
-    text-align: center;
-    padding-top: 1em;
-}
-
-#word {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-#word div {
-    padding-left: .15em;
-    padding-right: .15em;
-    border-bottom: 2px solid #34B69D;
-}
-
 .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-#user-name {
-    font-size: 1.25em;
-    color: #34B69D;
+#active-link {
+    font-weight: bold;
+}
+#active-link:hover {
+    color: #F5FFFD;
 }
 

@@ -5,3 +5,6 @@ dbkeys.sh
 dbConfig.json
 conflictTest.md
 cookie.txt
+npm-debug.log*
+/build
+/dist

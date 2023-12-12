@@ -2922,7 +2922,6 @@ export const WORDS = [
     'bluer',
     'slake',
     'dowdy',
-    'penis',
     'brays',
     'pupas',
     'egret',
