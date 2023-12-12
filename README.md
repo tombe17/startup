@@ -102,3 +102,11 @@ For this deliverable I used webSocket to update the results of games on the fron
 - Frontend makes WebSocket connection - done!
 - Data sent over WebSocket connection - done!
 - WebSocket data displayed - When users get the word or start a new game it is broadcasted to other people.
+
+## React Deliverable
+For this deliverable I converted my existing application into a functional react application.
+
+- Bundled and transpiled - done!
+- Components - Login, the game, scores, and about are all components.
+- Router - Routing between login, game, and other components.
+- Hooks - made use of UseState to track changes in authentication as well as game states. I also used useEffect to add listeners, and useRef to track where I was in the game grid.
